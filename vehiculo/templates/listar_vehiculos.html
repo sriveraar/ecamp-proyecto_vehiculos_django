@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Vehículos{% endblock %}
+
+{% block content %}
+    <h1>Lista de Vehículos</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Serial Carrocería</th>
+                <th>Serial Motor</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Categoría de Precio</th> <!-- Nueva columna -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehiculo in vehiculos %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ vehiculo.marca }}</td>
+                <td>{{ vehiculo.modelo }}</td>
+                <td>{{ vehiculo.serial_carroceria }}</td>
+                <td>{{ vehiculo.serial_motor }}</td>
+                <td>{{ vehiculo.categoria }}</td>
+                <td>${{ vehiculo.precio }}</td>
+                <td>{{ vehiculo.categoria_precio }}</td> <!-- Muestra la categoría de precio -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
